@@ -45,6 +45,44 @@
         margin: 0;
 
     }
+
+    .navbar-brand-box {
+      border: 2px solid rgb(0, 0, 0);
+      /* Border color */
+      padding: 10px 15px;
+      /* Adjusted padding */
+      border-radius: 2px;
+      background-color: rgb(255, 255, 255);
+      color: #000000 !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      /* Remove default link underline */
+      height: 100%;
+    }
+
+    .navbar-brand-box h4 {
+      margin: 0;
+    }
+
+    /* Add styles for blinking text */
+    #blinkingText {
+    font-size: 24px;
+    text-align: center; /* Change the font size to your desired value */
+    font-weight: bold;
+    display: inline-block;
+    animation: blinker 1s linear infinite;
+    background-color: rgb(145,255,176); /* Change the background color to your desired color */
+    padding: 5px; /* Add padding to improve visibility */
+    border-radius: 5px; /* Add rounded corners for a nicer look */
+  }
+
+  @keyframes blinker {
+      50% {
+          color: red;
+      }
+  }
   </style>
 
 </head>
@@ -105,24 +143,26 @@
       </div>
     </div>
   </nav>
+  
 
   <div class="name">
     <br>
     <br>
     <h4><b>Admin: Prashanth Kumar Suddala</b></h4>
     <br>
-    <p id="batteryFooter"></p>
+    <span id="blinkingText">Welcome to Sri Laxmi Online Services</span>
+    <br>
     <br>
     <p><i><b>Current Indian Date and Time:</b></i></p>
     <br>
   </div>
-
-  <div class="nav-bodies">
-    <div id="dateTime" class="text-center"></div>
-    <br>
+    <div class="nav-bodies">
+      <b><div id="dateTime" class="text-center"></div></b>
+      <br>
+      <!-- Rest of your content -->
+    </div>
     <!-- Rest of your content -->
   </div>
-  <br>
 
   <div class="nav-body">
     <div class="nav-text">
@@ -249,36 +289,89 @@
 
 
 
+
+<!-- Your remaining scripts and HTML content -->
+
 <script>
-    // Function to update the battery percentage in the footer
-    function updateBatteryPercentage() {
-      // Check if the Battery API is supported
-      if ('getBattery' in navigator) {
-        navigator.getBattery().then(function (battery) {
-          // Update the battery percentage in the footer
-          const batteryPercentage = Math.round(battery.level * 100);
-          const batteryFooter = document.getElementById('batteryFooter');
-          batteryFooter.innerText = `Your Device Battery Percentage: ${batteryPercentage}%`;
-        });
-      } else {
-        // Display a message if the Battery API is not supported
-        const batteryFooter = document.getElementById('batteryFooter');
-        batteryFooter.innerText = 'Battery information not available';
-      }
-    }
-  
-    // Call the function when the page is loaded
-    window.onload = function () {
-      displayDateTime(); // Your existing function
-      showWelcomeModal();
-      updateBatteryPercentage();
+  function displayDateTime() {
+    const updateDateTime = () => {
+      const currentDate = new Date();
+      const options = {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        timeZoneName: 'short'
+      };
+      const formattedDate = currentDate.toLocaleDateString('en-US', options);
+
+      document.getElementById('dateTime').innerText = formattedDate;
     };
-  
-    // Update the battery percentage when the battery level changes
-    navigator.getBattery().then(function (battery) {
-      battery.addEventListener('levelchange', updateBatteryPercentage);
-    });
-  </script>
+
+    // Update the date and time every second
+    setInterval(updateDateTime, 1000);
+
+    // Initial update
+    updateDateTime();
+  }
+
+  // Call the function when the page is loaded
+  window.onload = function () {
+    displayDateTime();
+  };
+</script>
+
+<!-- Add this script at the end of your body tag -->
+
+<script>
+  // Function to show the welcome modal when the page loads
+  function showWelcomeModal() {
+    const welcomeModal = new bootstrap.Modal(document.getElementById('welcomeModal'));
+    welcomeModal.show();
+
+    // Add lights blinking effect
+    const lightsElement = document.getElementById('lights');
+
+    // Blink the lights every 500 milliseconds (0.5 seconds)
+    setInterval(() => {
+      lightsElement.style.color = (lightsElement.style.color === 'yellow') ? 'white' : 'yellow';
+    }, 500);
+  }
+
+  function updateWelcomeStatus() {
+    const welcomeStatusElement = document.getElementById('welcomeStatus');
+    welcomeStatusElement.innerHTML = '<b>Welcome to Sri Laxmi Online Services</b>';
+
+    // Add lights blinking effect
+    const lightsElement = document.getElementById('lights');
+
+    // Blink the lights every 500 milliseconds (0.5 seconds)
+    setInterval(() => {
+      lightsElement.style.color = (lightsElement.style.color === 'yellow') ? 'white' : 'yellow';
+    }, 500);
+  }
+
+  function checkWelcomeStatus() {
+    // Simulate fetching welcome status from the server or any other logic
+    const isWelcomeEnabled = true;
+
+    if (isWelcomeEnabled) {
+      updateWelcomeStatus();
+    }
+  }
+
+  // Call the function when the page is loaded
+  window.onload = function () {
+    displayDateTime();
+     // Your existing function
+    checkWelcomeStatus(); // New function to check welcome status
+    showWelcomeModal();
+  };
+</script>
+
 <!-- Add this script at the end of your body tag -->
 <!-- Add this to your body section -->
 <div id="feedbackModal" class="modal">
@@ -345,8 +438,7 @@
     <br>
     <br>
     <div id="contact" class="container">
-      <br>
-      <br>
+      
       <h4><b>Google Map Location</b></h4>
       <div class="embed-responsive embed-responsive-16by9">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3788.4703298213976!2d78.65117447472984!3d18.280087176476812!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcc571ffea9f811%3A0xfbf330fe08bc7b5!2sSri%20Laxmi%20Online%20Services!5e0!3m2!1sen!2sin!4v1695296324152!5m2!1sen!2sin" width="280" height="190" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="embed-responsive-item"></iframe>
