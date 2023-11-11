@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="feedcss.css">
+</head>
+<body>
+    <div id="feedbackForm">
+        <h4><b>Feedback Form</b></h4>
+        <form id="feedbackForm" onsubmit="event.preventDefault(); submitFeedback();">
+            <div class="mb-3">
+                <label for="feedbackName" class="form-label">Name:</label>
+                <input type="text" class="form-control" id="feedbackName" required>
+            </div>
+            <div class="mb-3">
+                <label for="feedbackEmail" class="form-label">Email:</label>
+                <input type="email" class="form-control" id="feedbackEmail" required>
+            </div>
+            <div class="mb-3">
+                <label for="feedbackMessage" class="form-label">Feedback:</label>
+                <textarea class="form-control" id="feedbackMessage" rows="3" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit Feedback</button>
+        </form>
+    </div>
+
+    <script>
+        function submitFeedback() {
+            // Get form values
+            const name = document.getElementById('feedbackName').value;
+            const email = document.getElementById('feedbackEmail').value;
+            const message = document.getElementById('feedbackMessage').value;
+
+            // You can send the data to the server using AJAX here if needed
+            // ...
+
+            // Example: Show a success message
+            alert('Feedback submitted successfully!');
+
+            // Example: Redirect to another page
+            window.location.href = 'submit-success.html';
+
+            window.location.replace('csc.html');
+        }
+    </script>
+</body>
+</html>
