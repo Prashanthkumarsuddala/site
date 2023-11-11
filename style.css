@@ -86,3 +86,13 @@ footer {
 
     
 }
+#batteryFooter {
+    font-weight: bold;
+    color: red;
+    font-size: large;
+    padding: 0 5px;
+}
+.batteryPercentage {
+    background-color: antiquewhite;
+    padding: 0 5px
+}
