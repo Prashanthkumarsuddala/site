@@ -100,15 +100,15 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="https://prashanthkumarsuddala.github.io/CSC/csc.html"><b>HOME</b></a>
+            <button class="nav-link btn" onclick="navigateTo('https://prashanthkumarsuddala.github.io/CSC/csc.html')">HOME</button>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="https://srilaxmionlineservices.godaddysites.com/"><b>ANOTHER WEBSITE</b></a>
+            <button class="nav-link btn" onclick="navigateTo('https://srilaxmionlineservices.godaddysites.com/')">ANOTHER WEBSITE</button>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <b>SERVICES</b>
-            </a>
+            <button class="nav-link dropdown-toggle btn" data-bs-toggle="dropdown">
+            SERVICES
+            </button>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#">Pan Card apply</a></li>
               <li><a class="dropdown-item" href="#">Aadhaar Download</a></li>
@@ -120,9 +120,9 @@
             </ul>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <b>CONTACT US</b>
-            </a>
+            <button class="nav-link dropdown-toggle btn" data-bs-toggle="dropdown">
+            CONTACT US
+            </button>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#"><b>Gmail:</b> srilaxmidigitalseva@gmail.com</a></li>
               <li><a class="dropdown-item" href="#"><b>Phone No: </b>99xxxxxx74 (Privacy)
@@ -133,9 +133,9 @@
             </ul>
           </li>
           <li class="nav-item">
-            
-            <a class="nav-link" href="feedback.html"><b>FEEDBACK FORM</b></a>
+            <button class="nav-link btn" onclick="navigateTo('feedback.html')">FEEDBACK FORM</button>
           </li>
+
         </ul>
         <form class="d-flex ms-auto" onsubmit="event.preventDefault(); highlightSearch();">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="searchInput">
