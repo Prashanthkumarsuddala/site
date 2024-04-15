@@ -92,6 +92,32 @@ footer {
     font-size: large;
     padding: 0 5px;
 }
+/* Custom Styles */
+.navbar-brand-box {
+  padding: 10px 15px;
+  border-radius: 5px;
+  background-color: #343a40; /* Dark background color */
+}
+
+.navbar-brand-box h3 {
+  margin: 0;
+  color: #fff; /* White text color */
+}
+
+/* Add gradient background to the jumbotron */
+.jumbotron {
+  background: linear-gradient(to right, #4e54c8, #8f94fb); /* Gradient from purple to blue */
+  color: #fff; /* White text color */
+  padding: 100px 0;
+}
+
+/* Style the footer */
+.footer {
+  background-color: #343a40; /* Dark background color */
+  color: #fff; /* White text color */
+}
+
+
 .batteryPercentage {
     background-color: antiquewhite;
     padding: 0 5px
